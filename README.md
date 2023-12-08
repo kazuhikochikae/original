@@ -18,12 +18,14 @@
 
 ## 実行手順
 
+```
 git clone https://github.com/kazuhikochikae/original.git
 cd original01
 bundle install
 rails db:create
 rails db:migrate
 rails s
+```
 
 ## カタログ設計
 
@@ -35,7 +37,7 @@ rails s
 
 ## ワイヤーフレーム
 
-[ワイヤーフレーム](https://app.diagrams.net/#G1_6vepd7MfUwWkG9EF3qru1llVzI2HW0z)
+[ワイヤーフレーム](wire.png)
 
 ## ER 図
 
