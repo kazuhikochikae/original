@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    
+    role = current_user.role == 'user' ? 'vr_person' : 'user'
+    @users = User.where(role: role)
   end
 end
