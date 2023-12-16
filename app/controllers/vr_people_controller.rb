@@ -8,6 +8,10 @@ class VrPeopleController < ApplicationController
     @vr_person = VrPerson.new
   end
 
+  def show
+    @vr_person = VrPerson.find(params[:id]) # Ensure this fetches the correct record
+  end
+
   def create
     @vr_person = VrPerson.new(vr_person_params)
     @vr_person.user_id = current_user.id
