@@ -1,7 +1,7 @@
 class VrPeopleController < ApplicationController
 
   def index
-    @users = User.where(role: 'vr_person')
+    @vr_persons = VrPerson.all
   end
 
   def new
@@ -25,7 +25,7 @@ class VrPeopleController < ApplicationController
   private
 
   def vr_person_params
-    params.require(:vr_person).permit(:name, :description, :message)
+    params.require(:vr_person).permit(:name, :description, :message, :avatar)
   end
   
 end

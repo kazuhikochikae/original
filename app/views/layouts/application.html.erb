@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <main>
   <% if user_signed_in? %>
       <%= link_to "ブログ投稿", profiles_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -32,5 +33,6 @@
 <% if user_signed_in? %>
   <li><%= link_to 'ユーザー一覧', users_path %></li>
 <% end %>
+</main>
   </body>
 </html>
