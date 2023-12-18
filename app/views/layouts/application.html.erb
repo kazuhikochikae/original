@@ -12,9 +12,16 @@
   </head>
 
   <body>
+  <header>      
+  <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+  <% end %>
+  </header>
   <main>
   <% if user_signed_in? %>
-      <%= link_to "ブログ投稿", profiles_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
@@ -30,9 +37,8 @@
 
     <%= yield %>
     
-<% if user_signed_in? %>
-  <li><%= link_to 'ユーザー一覧', users_path %></li>
-<% end %>
+
 </main>
+<footer>© Test, Inc. All rights reserverd.</footer>
   </body>
 </html>

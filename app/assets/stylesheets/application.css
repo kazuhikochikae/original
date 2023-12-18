@@ -14,9 +14,22 @@
  *= require_self
  */
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #333;
+  background-color: initial;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
 .avatar_box img {
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .img_box img {
@@ -33,7 +46,7 @@
   justify-content: space-between;
 }
 
-.item {
+.list {
   width: 300px;
   margin-bottom: 50px;
   border: #c9c9c9 1px solid;
@@ -53,4 +66,41 @@
 
 h1 {
   margin-bottom: 40px;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: 30px;
+  padding-bottom: 50px;
+}
+
+footer {
+  background: #75bfff;
+  text-align: center;
+  color: #fff;
+  padding: 15px;
+}
+
+header {
+  background: #75bfff;
+  color: #fff;
+  padding: 20px;
+}
+
+header a {
+  color: #fff;
+}
+
+p.chat_btn a {
+  font-size: 20px;
+  width: 130px;
+  background-color: #ddd;
+  padding: 15px 15px;
+  border-radius: 10px;
+  margin-top: 40px;
+  display: inline-block;
+  text-align: center;
 }

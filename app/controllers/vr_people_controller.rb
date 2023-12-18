@@ -5,6 +5,9 @@ class VrPeopleController < ApplicationController
   end
 
   def new
+    if current_user.vr_person
+      redirect_to users_show_path
+    end
     @vr_person = VrPerson.new
   end
 

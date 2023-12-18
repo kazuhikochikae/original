@@ -3,12 +3,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
- <!-- 名前の入力フォームを追加（登録時にユーザー名を入力させたい場合）
+ <!-- 名前の入力フォームを追加（登録時にユーザー名を入力させたい場合） -->
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-   -->
 
   <div class="field">
     <%= f.label :email %><br />
@@ -45,9 +44,9 @@
   </div>
 
 
-  <%# 追加 %>
+<!--
 <%= f.file_field :avatar %>
-
+-->
   <div class="actions">
     <%= f.submit t('.update') %>
   </div>

@@ -1,23 +1,35 @@
+    <% if @user.present? %>
+
+
 <h1>プロフィール</h1>
 
 <h3>ユーザー名</h3>
 <%= @user.name %>
+
 <h3>メールアドレス</h3>
 <%= @user.email %>
+
 <h3>自己紹介文</h3>
 <%= @user.description %>
 
+<!--
 <div class="avatar_box">
 <h3>プロフィール画像</h3>
 <% if @user.avatar.attached? %>
   <%= image_tag @user.avatar %>
 <% end %>
 </div>
-
-<% if @user.role == "vr_person" %>
-  <%= link_to "こちらでとうろくしてね", new_vr_person_path %>
-<% elsif @user.role == "user" %>
-  <%= link_to "こちらでとうろくしてね", new_profile_path %>
+-->
 <% end %>
 
-<%= link_to "編集", edit_user_registration_path %>
+
+
+<% if @user.present? %>
+  <% if @user.role == "vr_person" && @user.vr_person.nil? %>
+    <%= link_to "こちらでとうろくしてね", new_vr_person_path %>
+  <% elsif @user.role == "user" %>
+    <!-- Handle 'user' role if needed -->
+  <% end %>
+<% end %>
+
+<%= link_to "プロフィール編集", edit_user_registration_path %>

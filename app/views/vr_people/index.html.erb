@@ -1,9 +1,11 @@
 <h1>キャラ一覧</h1>
+<p>キャラを選択してね！</p>
 <div class="chara_list">
 <div class="container">
 
 <% @vr_persons.each do |vr_person| %>
-<div class="item">
+<%= link_to vr_person_path(vr_person) do %>
+<div class="list">
 <div class="img_box">
   <h3>プロフィール</h3>
     <% if vr_person.avatar.attached? %>
@@ -16,11 +18,11 @@
   <%= vr_person.name %>
   <h3>一言メッセージ</h3>
   <%= vr_person.message %>
-  <h3>紹介文</h3>
-  <%= vr_person.description %>
 
 </div>
 <% end %>
+<% end %>
+
 </div>
 </div>
 
