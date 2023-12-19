@@ -21,5 +21,6 @@
 <% end %>
 
 
-
-<p class="chat_btn"><%= link_to 'チャットする', conversations_path(sender_id: current_user.id, recipient_id: @vr_person.user.id), method: :post %></p>
+<% if current_user.role == "user" %>
+  <p class="chat_btn"><%= link_to 'チャットする', conversations_path(sender_id: current_user.id, recipient_id: @vr_person.user.id), method: :post %></p>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'characters/show'
   devise_for :characters
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   get 'users/show'
 
-
+  # devise_scope :user do
+  #   root "users/sessions#new"
+  # end
 
   
   resources :profiles

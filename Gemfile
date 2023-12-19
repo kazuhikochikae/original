@@ -66,3 +66,7 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
+
+gem 'rails_admin', '~> 3.0'
+
+gem 'cancancan'
