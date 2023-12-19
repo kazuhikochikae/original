@@ -25,6 +25,22 @@ class VrPeopleController < ApplicationController
     end
   end
 
+  def edit
+    @vr_person = VrPerson.find(params[:id])
+  end
+
+  def update
+    @vr_person = VrPerson.find(params[:id])
+    
+    if @vr_person.update(vr_person_params)
+      redirect_to vr_person_path(@vr_person)
+    else
+      render :edit
+    end
+  end
+
+
+
   private
 
   def vr_person_params

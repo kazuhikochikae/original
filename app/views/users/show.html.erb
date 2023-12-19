@@ -1,4 +1,4 @@
-    <% if @user.present? %>
+<% if @user.present? %>
 
 
 <h1>プロフィール</h1>
@@ -27,8 +27,9 @@
 <% if @user.present? %>
   <% if @user.role == "vr_person" && @user.vr_person.nil? %>
     <%= link_to "こちらでとうろくしてね", new_vr_person_path %>
-  <% elsif @user.role == "user" %>
-    <!-- Handle 'user' role if needed -->
+
+  <% elsif @user.role == "user" && @user.profile.nil? %>
+    <%= link_to "こちらでとうろくしてね", new_profile_path %>
   <% end %>
 <% end %>
 

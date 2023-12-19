@@ -1,8 +1,20 @@
+<h3>キャラ名</h3>
+<%= @profile.user.name %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @profile.description %>
-</p>
+<h3>自己紹介文</h3>
+<%= @profile.description %>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<div class="avatar_box">
+  <h3>プロフィール画像</h3>
+  <%# if @profile.avatar.attached? %>
+    <%#= image_tag url_for(@vr_person.avatar) %>
+  <%# else %>
+    <p>No avatar uploaded.</p>
+  <%# end %>
+</div>
+
+<% if user_signed_in? && @profile.user_id == current_user.id && @profile.user.role == "user" %>
+  <%= link_to "編集する", edit_profile_path(@profile) %>
+<% end %>
+
+<p class="chat_btn"><%= link_to 'チャットする', conversations_path(sender_id: current_user.id, recipient_id: @profile.user.id), method: :post %></p>

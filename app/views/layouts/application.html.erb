@@ -12,21 +12,23 @@
   </head>
 
   <body>
-  <header>      
+  <header>
+  <ul>
   <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+    <% if current_user.role == "user" %>
+      <li><%= link_to "キャラ一覧", vr_people_path %></li>
+    <% elsif current_user.role == "vr_person" %>
+      <li><%= link_to "ユーザー一覧", profiles_path %></li>
+    <% end %>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  <% else %>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
   <% end %>
+  </ul>
   </header>
   <main>
-  <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-  <% end %>
+ 
 
   <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
@@ -36,7 +38,8 @@
   <% end %>
 
     <%= yield %>
-    
+
+  
 
 </main>
 <footer>© Test, Inc. All rights reserverd.</footer>

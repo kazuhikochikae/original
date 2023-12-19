@@ -15,6 +15,11 @@
     <p>No avatar uploaded.</p>
   <% end %>
 </div>
-<!--
-<p class="chat_btn"><%= link_to 'チャットする', conversation_messages_path(Conversation.between(current_user.id, @vr_person.user.id).first.id) %></p>
--->
+
+<% if user_signed_in? && @vr_person.user_id == current_user.id && @vr_person.user.role == "vr_person" %>
+  <%= link_to "編集する", edit_vr_person_path(@vr_person) %>
+<% end %>
+
+
+
+<p class="chat_btn"><%= link_to 'チャットする', conversations_path(sender_id: current_user.id, recipient_id: @vr_person.user.id), method: :post %></p>

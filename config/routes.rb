@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   get 'users/show'
+
+
+
   
   resources :profiles
   resources :vr_people
-  root 'users#show'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
