@@ -1,16 +1,12 @@
 <div class="container_top">
 <div class="left">
-<p>キャラクターになりきって、チャットで人を楽しませたい人と<br>
-楽しみたい人をつなぐアプリです。</p>
-<p>悩みなど普段人には言えなかったり、誰かに話しを聞いてもらいたいなど、<br>
-お気に入りのキャラクターと１対１で話をすることができます。</p>
-<p>Get started with the app!</p>
+<p>キャラクターになりきって、<br>チャットで人を楽しませたい人と<br>楽しみたい人をつなぐアプリです。</p>
+<p>悩みなど普段人には言えなかったり、<br>誰かに話しを聞いてもらいたいなど、<br>お気に入りのキャラクターと<br>１対１で話をすることができます。</p>
+<p class="en_txt">Get started with the app!</p>
 </div>
 
 
 <div class="right">
-
-<h2><%= t('.sign_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -35,12 +31,11 @@
   </div>
 <% end %>
 
-  <div class="">
+  <div class="sign_box">
      <% if user_signed_in? %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+      <p class="txt"><%= link_to "新規登録はこちら", new_user_registration_path %></p>
   <% end %>
   </div>
 

@@ -25,6 +25,10 @@ a:hover {
   text-decoration: none;
 }
 
+body {
+  color: #666;
+}
+
 .avatar_box img {
   width: 200px;
   height: 200px;
@@ -44,6 +48,10 @@ a:hover {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-between;
+}
+
+.container.sed {
+  align-items: center;
 }
 
 .list {
@@ -74,20 +82,20 @@ body {
 
 main {
   margin: 30px;
-  padding-bottom: 50px;
 }
 
 footer {
   background: #7a9fe854;
   text-align: center;
   color: #666;
-  padding: 15px;
+  padding: 20px;
+  font-size: 12px;
 }
 
 header {
   background: #7a9fe854;
   color: #666;
-  padding: 20px;
+  padding: 15px;
 }
 
 header a {
@@ -98,6 +106,7 @@ header ul {
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
+  font-weight: bold;
 }
 
 header ul li {
@@ -125,9 +134,83 @@ textarea#message_body {
 .container_top {
   display: flex;
   justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 130px;
+}
+
+.left p {
+  max-width: 450px;
+  font-size: 18px;
+  line-height: 1.9;
+  letter-spacing: 1.6px;
+}
+
+.ttl {
+  /*font-family: "Nico Moji";*/
+  margin: 0;
+  width: 280px;
+  text-align: center;
+  font-size: 33px;
+  line-height: 21px;
+  letter-spacing: -1px;
+  color: #110d58a6;
+}
+
+.ttl span {
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+
+p.en_txt {
+  padding-top: 20px;
+  font-size: 21px;
+}
+
+.right {
+  box-shadow: none;
+  border-radius: 10px;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 350px;
+}
+
+input[type="submit"] {
+  border: none;
+  background: #110d58a6;
+  color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.sign_box .txt {
+  font-size: 14px;
+  text-align: center;
+}
+
+.right input#user_email {
+  width: 100%;
+  border: 1px solid #c7c4c4;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.right input#user_password {
+  width: 100%;
+  border: 1px solid #c7c4c4;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .left {
-  max-width: 400px;
-  padding-right: 70px;
+  margin-top: -15px;
+  padding-right: 110px;
 }

@@ -9,10 +9,16 @@
    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+
   </head>
 
   <body>
-  <header>
+  <header class="container sed">
+  <h1 class="ttl">Character Talk<br><!--<span>キャラクター トーク</span>--></h1>
   <ul>
   <% if user_signed_in? %>
     <% if current_user.role == "user" %>
@@ -42,6 +48,6 @@
   
 
 </main>
-<footer>© Test, Inc. All rights reserverd.</footer>
+<footer>© Character Talk, Inc. All rights reserverd.</footer>
   </body>
 </html>
