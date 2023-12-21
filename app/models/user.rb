@@ -18,17 +18,34 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   #指定のユーザをフォローする
-def follow!(other_user)
-  active_relationships.create!(followed_id: other_user.id)
-end
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
 
-#フォローしているかどうかを確認する
-def following?(other_user)
-  active_relationships.find_by(followed_id: other_user.id)
-end
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
 
-def unfollow!(other_user)
-  active_relationships.find_by(followed_id: other_user.id).destroy
-end
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@test.co.jp') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.role = "user"
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
+
+  def self.guest_admin
+    find_or_create_by!(email: 'guest_admin@test.co.jp') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.role = "admin"
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
 end

@@ -7,7 +7,11 @@
     <% if message.body.present? %>
       <div class="item">
         <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <% if message.user.role == "vr_person" %>
+            <div class="header"><strong><%= message.user.vr_person.name %></strong> <%= message.message_time %></div>
+          <% elsif message.user.role == "user" %>
+            <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <% end %>  
           <div class="list">
             <div class="item">
               <i class="right triangle icon"></i>

@@ -17,14 +17,20 @@
   </head>
 
   <body>
+  <div class="wrapper">
+
   <header class="container sed">
   <h1 class="ttl">Character Talk<br><!--<span>キャラクター トーク</span>--></h1>
   <ul>
   <% if user_signed_in? %>
     <% if current_user.role == "user" %>
       <li><%= link_to "キャラ一覧", vr_people_path %></li>
+
+      <li><%= link_to "アカウント", users_profile_path %></li>
     <% elsif current_user.role == "vr_person" %>
       <li><%= link_to "ユーザー一覧", profiles_path %></li>
+
+      <li><%= link_to "アカウント", users_profile_path %></li>
     <% end %>
     <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
   <% else %>
@@ -49,5 +55,7 @@
 
 </main>
 <footer>© Character Talk, Inc. All rights reserverd.</footer>
+
+</div>
   </body>
 </html>

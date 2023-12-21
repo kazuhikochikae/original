@@ -1,13 +1,13 @@
-<h1>キャラ一覧</h1>
+<h2>キャラ一覧</h2>
 <p>キャラを選択してね！</p>
 <div class="chara_list">
-<div class="container">
+<div class="list-container">
 
 <% @vr_persons.each do |vr_person| %>
 <%= link_to vr_person_path(vr_person) do %>
 <div class="list">
 <div class="img_box">
-  <h3>プロフィール</h3>
+  <h2>キャラプロフィール</h2>
     <% if vr_person.avatar.attached? %>
     <%= image_tag vr_person.avatar %>
   <% else %>

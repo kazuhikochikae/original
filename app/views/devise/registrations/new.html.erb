@@ -27,7 +27,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
- <div class="field">
+ <p class="field_txt">一般のユーザーとしてキャラと会話したい人はユーザー、<br>キャラになりきってユーザーと会話したい人はキャラを<br>選択してください。</p>
+
+ <div class="field choice container">
   <div class="radio-inline">
     <%= f.radio_button :role, User.roles.key(0), checked: "checked" %>
     <%= f.label :ユーザー, class: "job_type_label" %>
@@ -41,7 +43,7 @@
 </div>
    
 
-  <div class="actions">
+  <div class="actions btm">
     <%= f.submit t('.sign_up') %>
   </div>
 <% end %>

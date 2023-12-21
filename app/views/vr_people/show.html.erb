@@ -1,3 +1,8 @@
+<div class="upper_box">
+<h2 class="not">キャラプロフィール</h2>
+<!--<p>プロフィールを記入することで、ユーザーとチャットすることができます。</p>-->
+</div>
+
 <h3>キャラ名</h3>
 <%= @vr_person.name %>
 
@@ -17,7 +22,7 @@
 </div>
 
 <% if user_signed_in? && @vr_person.user_id == current_user.id && @vr_person.user.role == "vr_person" %>
-  <%= link_to "編集する", edit_vr_person_path(@vr_person) %>
+  <p class="link_blue"><%= link_to "編集する", edit_vr_person_path(@vr_person) %></p>
 <% end %>
 
 

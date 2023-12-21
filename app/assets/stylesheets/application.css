@@ -27,6 +27,15 @@ a:hover {
 
 body {
   color: #666;
+  font-size: 14px;
+}
+
+body,
+p,
+ol,
+ul,
+td {
+  font-size: 14px;
 }
 
 .avatar_box img {
@@ -55,12 +64,25 @@ body {
 }
 
 .list {
-  width: 300px;
+  width: 350px;
   margin-bottom: 50px;
   border: #c9c9c9 1px solid;
-
   border-radius: 10px;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+.list-container::after {
+  content: "";
+  display: block;
+  width: 350px;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
 }
 
 .img_box {
@@ -84,14 +106,6 @@ main {
   margin: 30px;
 }
 
-footer {
-  background: #7a9fe854;
-  text-align: center;
-  color: #666;
-  padding: 20px;
-  font-size: 12px;
-}
-
 header {
   background: #7a9fe854;
   color: #666;
@@ -99,7 +113,7 @@ header {
 }
 
 header a {
-  color: #fff;
+  color: #666;
 }
 
 header ul {
@@ -135,12 +149,12 @@ textarea#message_body {
   display: flex;
   justify-content: center;
   padding-top: 100px;
-  padding-bottom: 130px;
+  padding-bottom: 100px;
 }
 
-.left p {
+.left_box p {
   max-width: 450px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.9;
   letter-spacing: 1.6px;
 }
@@ -162,11 +176,11 @@ textarea#message_body {
 }
 
 p.en_txt {
-  padding-top: 20px;
-  font-size: 21px;
+  padding-top: 10px;
+  font-size: 20px;
 }
 
-.right {
+.right_box {
   box-shadow: none;
   border-radius: 10px;
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.2);
@@ -174,7 +188,7 @@ p.en_txt {
   width: 350px;
 }
 
-input[type="submit"] {
+.right_box input[type="submit"] {
   border: none;
   background: #110d58a6;
   color: #fff;
@@ -185,6 +199,7 @@ input[type="submit"] {
   font-weight: bold;
   letter-spacing: 1px;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .sign_box .txt {
@@ -192,7 +207,7 @@ input[type="submit"] {
   text-align: center;
 }
 
-.right input#user_email {
+.right_box input#user_email {
   width: 100%;
   border: 1px solid #c7c4c4;
   border-radius: 5px;
@@ -201,7 +216,7 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-.right input#user_password {
+.right_box input#user_password {
   width: 100%;
   border: 1px solid #c7c4c4;
   border-radius: 5px;
@@ -210,7 +225,66 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-.left {
+.left_box {
   margin-top: -15px;
   padding-right: 110px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative; /*←相対位置*/
+  padding-bottom: 58px; /*←footerの高さ*/
+  box-sizing: border-box; /*←全て含めてmin-height:100vhに*/
+}
+
+footer {
+  background: #7a9fe854;
+  text-align: center;
+  color: #666;
+  padding: 20px;
+  font-size: 12px;
+  width: 100%;
+
+  position: absolute; /*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
+
+.link_blue a {
+  color: #1c34ff;
+}
+
+.upper_box {
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+h2.not {
+  margin-bottom: 0;
+}
+
+.actions.btm {
+  margin-bottom: 50px;
+}
+
+input#vr_person_avatar {
+  margin-bottom: 20px;
+}
+
+.radio-inline {
+  text-align: center;
+}
+
+.field.choice.container {
+  width: 120px;
+}
+
+p.field_txt {
+  line-height: 1.6;
+}
+
+.chara-link_box {
+  margin-top: 40px;
 }

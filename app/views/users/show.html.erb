@@ -1,7 +1,7 @@
 <% if @user.present? %>
 
 
-<h1>プロフィール</h1>
+<h2>アカウント情報</h2>
 
 <h3>ユーザー名</h3>
 <%= @user.name %>
@@ -9,10 +9,10 @@
 <h3>メールアドレス</h3>
 <%= @user.email %>
 
+<!--
 <h3>自己紹介文</h3>
 <%= @user.description %>
 
-<!--
 <div class="avatar_box">
 <h3>プロフィール画像</h3>
 <% if @user.avatar.attached? %>
@@ -23,14 +23,22 @@
 <% end %>
 
 
-
-<% if @user.present? %>
-  <% if @user.role == "vr_person" && @user.vr_person.nil? %>
-    <%= link_to "こちらでとうろくしてね", new_vr_person_path %>
-
-  <% elsif @user.role == "user" && @user.profile.nil? %>
-    <%= link_to "こちらでとうろくしてね", new_profile_path %>
-  <% end %>
+<p class="link_blue"><%= link_to "アカウント編集", edit_user_registration_path %></p>
+<% if @user.present? && @user.vr_person.present? %>
+<p class="link_blue"><%= link_to "キャラクター情報", vr_person_path(@user.vr_person) %></p>
 <% end %>
 
-<%= link_to "プロフィール編集", edit_user_registration_path %>
+<% if @user.present? && @user.profile.present? %>
+  <p class="link_blue"><%= link_to "自己紹介", profile_path(@user.profile) %></p>
+<% end %>
+
+<div class="chara-link_box">
+<% if @user.present? %>
+  <% if @user.role == "vr_person" && @user.vr_person.nil? %>
+     <p class="link_blue"><%= link_to "このリンクをクリックして、キャラの情報を記入してください。", new_vr_person_path %></p>
+
+  <% elsif @user.role == "user" && @user.profile.nil? %>
+     <p class="link_blue"><%= link_to "このリンクをクリックして、自己紹介を記入してください。", new_profile_path %></p>
+  <% end %>
+<% end %>
+</div>

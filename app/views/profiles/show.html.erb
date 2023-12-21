@@ -1,9 +1,14 @@
+<div class="upper_box">
+<h2 class="not">自己紹介</h2>
+<!--<p>自己紹介を記入することで、キャラの人とチャットすることができます。</p>-->
+</div>
+<!--
 <h3>ユーザー名</h3>
 <%= @profile.user.name %>
-
-<h3>自己紹介文</h3>
+-->
+<h3>紹介文</h3>
 <%= @profile.description %>
-
+<!--
 <div class="avatar_box">
   <h3>プロフィール画像</h3>
   <%# if @profile.avatar.attached? %>
@@ -12,9 +17,12 @@
     <p>No avatar uploaded.</p>
   <%# end %>
 </div>
+-->
 
 <% if user_signed_in? && @profile.user_id == current_user.id && @profile.user.role == "user" %>
-  <%= link_to "編集する", edit_profile_path(@profile) %>
+  <p class="link_blue"><%= link_to "紹介文を編集する", edit_profile_path(@profile) %></p>
+        <p class="link_blue"><%= link_to "キャラとチャットする", vr_people_path %></p>
+
 <% end %>
 
 <% if current_user.role == "vr_person" %>

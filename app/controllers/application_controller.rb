@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    if current_user.role == "user"
+    if current_user.role == "user" && current_user.profile.present?
       profile_path(current_user.profile)
-    else
+    elsif current_user.role == "vr_person" && current_user.vr_person.present?
       vr_person_path(current_user.vr_person)
+    else
+      # プロフィールが存在しない場合や他のケースに対するデフォルトのリダイレクト先を指定
+      root_path
     end
   end
 
