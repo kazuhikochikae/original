@@ -9,3 +9,7 @@ ja:
         attributes:
           description:
             blank: "を入力してください"
+    activerecord:
+    errors:
+      messages:
+        record_invalid: "は無効です"
