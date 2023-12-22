@@ -75,3 +75,7 @@ gem 'rails_admin', '~> 3.0'
 gem 'cancancan'
 
 gem 'rack-mini-profiler'
+
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
