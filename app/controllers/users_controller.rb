@@ -8,4 +8,6 @@ class UsersController < ApplicationController
     role = current_user.role == 'user' ? 'vr_person' : 'user'
     @users = User.where(role: role)
   end
+
+
 end

@@ -27,6 +27,10 @@ class VrPeopleController < ApplicationController
 
   def edit
     @vr_person = VrPerson.find(params[:id])
+    unless current_user == @vr_person.user
+      redirect_to root_path, alert: "アクセスが拒否されました"
+    end
+      
   end
 
   def update

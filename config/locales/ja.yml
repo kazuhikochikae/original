@@ -1,6 +1,11 @@
 ja:
-  enums:
-    announcement:
-      achieve_status:
-        nonachieve: "未達成"
-        achieve: "達成"
+  activerecord:
+    attributes:
+      user:
+        description: "説明"
+  errors:
+    models:
+      user:
+        attributes:
+          description:
+            blank: "を入力してください"

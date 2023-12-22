@@ -17,6 +17,13 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @profile = Profile.find(params[:id])
+
+  # プロフィールのオーナーでない場合、リダイレクトする
+  if current_user != @profile.user
+    redirect_to root_path, alert: "他のユーザーのプロフィールを編集する権限がありません。"
+    return
+  end
   end
 
   # POST /profiles or /profiles.json
@@ -33,6 +40,11 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
+    if current_user != @profile.user
+      redirect_to root_path, alert: "他のユーザーのプロフィールを編集する権限がありません。"
+      return
+    end
+
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to profile_url(@profile), notice: "プロファイルが正常に更新されました。" }
@@ -64,4 +76,7 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:description)
     end
+
+   
+
 end

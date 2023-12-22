@@ -3,4 +3,7 @@ class Character < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :email, :name, :description,:message, presence: true
+
 end
