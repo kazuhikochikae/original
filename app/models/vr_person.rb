@@ -6,3 +6,4 @@ class VrPerson < ApplicationRecord
   validates :name, :description,:message, presence: true
 
 end
+

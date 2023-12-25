@@ -31,6 +31,15 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.build(message_params)
+
+    if @message.body.blank?
+    flash[:alert] = "メッセージを入力してください"
+    redirect_to conversation_messages_path(@conversation)
+    return
+    end
+
+    @messages = @message.conversation.messages.order(created_at: :asc)
+
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     else

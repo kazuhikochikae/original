@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+
+
+
+
   protected
   def configure_permitted_parameters
     # ユーザー登録時にnameのストロングパラメータを追加（サインアップ時にnameを入力する場合は追記）
