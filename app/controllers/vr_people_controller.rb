@@ -18,6 +18,7 @@ class VrPeopleController < ApplicationController
   def create
     @vr_person = VrPerson.new(vr_person_params)
     @vr_person.user_id = current_user.id
+  
     if @vr_person.save
       redirect_to vr_person_path(@vr_person)
     else
