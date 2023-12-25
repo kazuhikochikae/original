@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'characters/show'
-  devise_for :characters
+  
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  get '/characters', to: 'characters#index'
   get 'relationships/create'
   get 'relationships/destroy'
   get 'users/show'
