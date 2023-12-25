@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  validates :email, :name, presence: true
+
+
   #指定のユーザをフォローする
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
@@ -32,9 +35,11 @@ class User < ApplicationRecord
   end
 
   def self.guest
+    
     find_or_create_by!(email: 'guest@test.co.jp') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.role = "user"
+      user.name = "ゲスト"
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
@@ -44,10 +49,10 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest_admin@test.co.jp') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.role = "admin"
+      user.name = "guest.admin"
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
 
-  validates :email, :name, presence: true
 end
