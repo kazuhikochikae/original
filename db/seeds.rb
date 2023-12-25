@@ -52,3 +52,4 @@ User.create!(
   password_confirmation: 'password',
   role: User.roles[:admin] # 管理者
 )
+
