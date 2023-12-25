@@ -2,14 +2,20 @@ ja:
   activerecord:
     attributes:
       user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "名前"
         description: "説明"
-  errors:
-    models:
-      user:
-        attributes:
-          description:
-            blank: "を入力してください"
-    activerecord:
     errors:
-      messages:
-        record_invalid: "は無効です"
+      models:
+        user:
+          attributes:
+            email:
+              blank: "は必須です"
+            password:
+              blank: "は必須です"
+            name:
+              blank: "は必須です"
+            description:
+              blank: "を入力してください"
+          record_invalid: "は無効です"
