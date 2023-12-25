@@ -64,7 +64,7 @@ RSpec.describe 'システムテスト', type: :system do
       click_on 'commit'
       
       click_on 'ログアウト'
-
+      sleep 1
       # 別の新しいユーザーを登録
       visit new_user_registration_path
       fill_in 'user[name]', with: '新規ユーザ02'

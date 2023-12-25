@@ -1,5 +1,6 @@
 class VrPeopleController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @vr_persons = VrPerson.all
   end

@@ -8,8 +8,8 @@ class User < ApplicationRecord
 # :avatarの部分は用途に合わせて :image :photoでも可
   has_one_attached :avatar
 
-  has_one :profile
-  has_one :vr_person
+  has_one :profile, dependent: :destroy
+  has_one :vr_person, dependent: :destroy
 
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
